@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Algorithm Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <h1>🤖 Interactive ML Algorithm Simulator</h1>
+        <p>Learn machine learning algorithms through visual experimentation</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar - Algorithm Selection -->
+        <aside class="sidebar">
+            <h2>📚 Algorithms</h2>
+            
+            <div class="algorithm-list">
+                <button class="algo-btn active" data-algo="linear-regression">
+                    <span class="algo-icon">📈</span>
+                    <span class="algo-name">Linear Regression</span>
+                </button>
+                <button class="algo-btn" data-algo="k-means">
+                    <span class="algo-icon">🎯</span>
+                    <span class="algo-name">K-Means Clustering</span>
+                </button>
+                <button class="algo-btn" data-algo="decision-tree">
+                    <span class="algo-icon">🌳</span>
+                    <span class="algo-name">Decision Tree</span>
+                </button>
+            </div>
+
+            <!-- Dataset Selection -->
+            <div class="dataset-section">
+                <h3>📊 Dataset</h3>
+                <select id="dataset-select">
+                    <option value="sample1">Sample Dataset 1</option>
+                    <option value="sample2">Sample Dataset 2</option>
+                    <option value="custom">Custom Points</option>
+                </select>
+                <button id="generate-data-btn" class="btn-secondary">Generate Random</button>
+                <button id="clear-data-btn" class="btn-danger">Clear All</button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <!-- Visualization Canvas -->
+            <div class="visualization-area">
+                <div class="canvas-container">
+                    <canvas id="main-canvas" width="700" height="500"></canvas>
+                    <div class="canvas-overlay" id="canvas-overlay">
+                        <p>Click to add data points</p>
+                    </div>
+                </div>
+                
+                <!-- Controls Bar -->
+                <div class="controls-bar">
+                    <button id="run-btn" class="btn-primary">▶ Run Algorithm</button>
+                    <button id="step-btn" class="btn-secondary">⏭ Step Forward</button>
+                    <button id="reset-btn" class="btn-secondary">🔄 Reset</button>
+                    <div class="speed-control">
+                        <label>Speed:</label>
+                        <input type="range" id="speed-slider" min="1" max="10" value="5">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parameters Panel -->
+            <div class="parameters-panel" id="parameters-panel">
+                <!-- Parameters will be dynamically loaded based on algorithm -->
+            </div>
+        </main>
+
+        <!-- Right Panel - Explanation -->
+        <aside class="explanation-panel">
+            <h2>📖 How It Works</h2>
+            
+            <div class="explanation-content" id="explanation-content">
+                <!-- Dynamic explanation content -->
+            </div>
+
+            <!-- Step Tracker -->
+            <div class="step-tracker" id="step-tracker">
+                <h3>Current Step</h3>
+                <div class="step-info" id="step-info">
+                    <span class="step-number">Step 0</span>
+                    <p class="step-description">Select an algorithm and click Run to start</p>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="statistics" id="statistics">
+                <h3>📊 Statistics</h3>
+                <div class="stats-content" id="stats-content">
+                    <!-- Dynamic stats -->
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Built for learning ML algorithms interactively | 
+           <a href="#" id="help-link">Help</a> | 
+           <a href="#" id="about-link">About</a>
+        </p>
+    </footer>
+
+    <!-- Help Modal -->
+    <div class="modal" id="help-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>How to Use</h2>
+            <ol>
+                <li><strong>Select Algorithm:</strong> Click on an algorithm from the left sidebar</li>
+                <li><strong>Add Data:</strong> Click on canvas to add points or use sample datasets</li>
+                <li><strong>Adjust Parameters:</strong> Use sliders to change algorithm parameters</li>
+                <li><strong>Run:</strong> Click "Run Algorithm" to see it in action</li>
+                <li><strong>Step Through:</strong> Use "Step Forward" to see each iteration</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Load JavaScript files in correct order -->
+    <script src="js/datasets.js"></script>
+    <script src="js/visualization.js"></script>
+    <script src="js/linearRegression.js"></script>
+    <script src="js/kMeans.js"></script>
+    <script src="js/decisionTree.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
